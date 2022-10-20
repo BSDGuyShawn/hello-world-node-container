@@ -11,8 +11,8 @@ spec:
     volumeMounts:
       - mountPath: /var/run/docker.sock
         name: docker-sock
-      # - mountPath: /var/lib/containers/storage
-      #   name: podman-local
+      - mountPath: /var/lib/containers/storage
+        name: podman-local
   - name: docker
     image: docker:latest
     imagePullPolicy: "IfNotPresent"
@@ -37,4 +37,4 @@ spec:
       path: /var/run/docker.sock
   - name: podman-local
     hostPath:
-      path: /var/lib/docker/containers
+      path: /var/lib/docker/overlay2/
