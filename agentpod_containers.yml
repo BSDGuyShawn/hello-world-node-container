@@ -9,7 +9,7 @@ spec:
     - cat
     tty: true
     volumeMounts:
-      - mountPath: /home/podman/.local/share/containers
+      - mountPath: /var/lib/containers/storage
         name: podman-local
   - name: docker
     image: docker:latest
