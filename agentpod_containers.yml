@@ -9,8 +9,8 @@ spec:
     - cat
     tty: true
     volumeMounts:
-      - mountPath: /var/run/docker.sock
-        name: docker-sock
+      - mountPath: /home/podman/.local/share/containers
+        name: podman-local
   - name: docker
     image: docker:latest
     imagePullPolicy: "IfNotPresent"
@@ -33,3 +33,6 @@ spec:
   - name: docker-sock
     hostPath:
       path: /var/run/docker.sock
+  - name: podman-local
+    hostPath:
+      path: /var/lib/docker/containers
