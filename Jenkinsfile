@@ -17,9 +17,10 @@ pipeline {
     stage('Buildah-Image') {
       steps {
         container('buildah') {
-          sh 'buildah --storage-driver vfs bud -t slw/hello-world-node-buildah:latest .'
+          sh 'buildah --storage-driver vfs bud -t hello-world-node-buildah .'
+          sh 'sleep(5000)'
           sh 'buildah images'
-          sh 'buildah push slw/hello-world-node-buildah docker://slw/hello-world-node-buildah:latest'
+          sh 'buildah push hello-world-node-buildah docker://slw/hello-world-node-buildah:latest'
         }
       }
     }
