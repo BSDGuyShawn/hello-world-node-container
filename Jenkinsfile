@@ -10,14 +10,14 @@ pipeline {
     stage('Buildah-Docker-Image') {
       steps {
         container('docker') {
-          sh 'docker build -t slw/hello-world-node-container:latest .'
+          sh 'docker build -t slw/hello-world-node-docker:latest .'
         }
       }
     }
     stage('Buildah-Docker-Image') {
       steps {
         container('buildah') {
-          sh 'buildah bud -t slw/hello-world-node-container:latest .'
+          sh 'buildah bud -t slw/hello-world-node-buildah:latest .'
         }
       }
     }
