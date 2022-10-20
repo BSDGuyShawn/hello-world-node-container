@@ -17,6 +17,7 @@ pipeline {
     stage('Buildah-Image') {
       steps {
         container('buildah') {
+          sh 'modprobe fuse'
           sh 'buildah bud -t slw/hello-world-node-buildah:latest .'
         }
       }
