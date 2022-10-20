@@ -18,7 +18,7 @@ pipeline {
       steps {
         container('podman') {
           // sh 'podman --storage-driver vfs build -t hello-world-node-buildah -f Dockerfile .'
-          sh 'podman --storage-driver vfs build -t hello-world-node-buildah:latest -f Dockerfile . --format=docker --url=unix://var/run/docker.sock'
+          sh 'podman --url=unix://var/run/docker.sock --storage-driver vfs build -t hello-world-node-buildah:latest -f Dockerfile . --format=docker'
           sh 'sleep 5'
           sh 'podman images'
           sh 'podman push hello-world-node-buildah docker://hello-world-node-buildah'
