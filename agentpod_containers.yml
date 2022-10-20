@@ -4,7 +4,7 @@ spec:
   containers:
   - name: podman
     image: quay.io/containers/podman:latest
-    imagePullPolicy: "IfNotPresent"
+    # imagePullPolicy: "IfNotPresent"
     command:
     - cat
     tty: true
