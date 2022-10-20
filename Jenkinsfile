@@ -16,11 +16,11 @@ pipeline {
     }
     stage('Buildah-Image') {
       steps {
-        container('buildah') {
-          sh 'buildah --storage-driver vfs bud -t hello-world-node-buildah -f Dockerfile .'
+        container('podman') {
+          sh 'podman --storage-driver vfs bud -t hello-world-node-buildah -f Dockerfile .'
           sh 'sleep 5'
-          sh 'buildah containers'
-          sh 'buildah push hello-world-node-buildah docker:///slw/hello-world-node-buildah:latest'
+          sh 'podman containers'
+          sh 'podman push hello-world-node-buildah docker:///slw/hello-world-node-buildah:latest'
         }
       }
     }
