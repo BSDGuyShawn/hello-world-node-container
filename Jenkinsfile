@@ -10,7 +10,7 @@ pipeline {
     stage('Build-Docker-Image') {
       steps {
         container('buildah') {
-          sh 'buildaj build -t slw/hello-world-node-container:latest .'
+          sh 'buildah build -t slw/hello-world-node-container:latest .'
         }
       }
     }
