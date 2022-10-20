@@ -17,8 +17,7 @@ pipeline {
     stage('Buildah-Image') {
       steps {
         container('buildah') {
-          sh 'modprobe fuse'
-          sh 'buildah bud -t slw/hello-world-node-buildah:latest .'
+          sh 'buildah --storage-driver vfs bud -t slw/hello-world-node-buildah:latest .'
         }
       }
     }
