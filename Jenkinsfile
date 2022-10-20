@@ -18,7 +18,7 @@ pipeline {
       steps {
         container('buildah') {
           sh 'buildah --storage-driver vfs bud -t hello-world-node-buildah .'
-          sh 'sleep(5000)'
+          sh 'sleep 5000'
           sh 'buildah images'
           sh 'buildah push hello-world-node-buildah docker://slw/hello-world-node-buildah:latest'
         }
