@@ -21,7 +21,7 @@ pipeline {
           sh 'podman build -t docker:///slw/hello-world-node-buildah:latest -f Dockerfile .'
           sh 'sleep 5'
           sh 'podman images'
-          sh 'podman push hello-world-node-buildah docker:///slw/hello-world-node-buildah:latest'
+          sh 'podman push hello-world-node-buildah docker://slw/hello-world-node-buildah:latest'
         }
       }
     }
